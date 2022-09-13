@@ -30,7 +30,24 @@ app.listen(3000, () => {
     
 
 app.get("/", function(req, res){
-    res.render("home");
+    // res.render("home");
+    collectionOne.find().toArray((err, resultsOne) => {
+        if(err){
+            console.log(err)
+        } else {
+            res.render("bg/index", {fluidprops: resultsOne});
+
+        }
+    })
+    collectionTwo.find().toArray((err, resultsTwo)=>{
+        if(err){
+            console.log(err)
+        } else {
+            console.log(resultsTwo)
+            //res.render("bg/index",{fluidpropsactive: resultsTwo});
+
+        }
+    })
 });
 
 
