@@ -5,7 +5,7 @@ var express             = require("express"),
     //Movies              = require("./models/movies"),
     bodyParser          = require("body-parser");
 
-const url ="mongodb+srv://oilgas:oilgas-password@gasproperty-engxm.mongodb.net/test?retryWrites=true&w=majority";
+const url ="mongodb+srv://oilgas:oilgas-password@gasproperty-engxm.mongodb.net/?retryWrites=true&w=majority";
 const db_name = "gasproperty"
 
 var app = express();
