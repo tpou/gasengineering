@@ -1,0 +1,34 @@
+
+<% include partials/header %>
+
+<!-- /views/postsList.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Home | My blog</title>
+    </head>
+    <body>
+        <h1>
+            Welcome to my blog
+            <br/>
+            <br/>
+
+        </h1>
+        <h2>
+            List of recent posts
+        </h2>
+        <% posts.forEach(post => { %>
+        <!-- Get the Markdown filename without it's extension -->
+        <% const postFilename = post[0].replace(/\.[^/.]+$/, "") %>
+        <!-- Get the Markdown post title from it's front matter -->
+        <% const postTitle = post[1].data.title %>
+        <!-- Render the title as a link to the post -->
+        <h2><a href="/posts/<%= postFilename %>"><%= postTitle%></a></h2>
+        <% }) %>
+    </body>
+</html>
+
+<% include partials/footer %>
