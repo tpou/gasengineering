@@ -11,23 +11,27 @@
         <title>Home | My blog</title>
     </head>
     <body>
-        <h1>
-            Welcome to my blog
-            <br/>
-            <br/>
+        <section class="text-left p-4">
+            <h1>
+                Welcome to my blog
+            </h1>
+            <h3>
+                List of recent posts:
+            </h3>
+        </section>
+        <section class="text-center">
+           <% posts.forEach(post => { %>
+           <!-- Get the Markdown filename without it's extension -->
+           <% const postFilename = post[0].replace(/\.[^/.]+$/, "") %>
+           <br/>
+           <!-- Get the Markdown post title from it's front matter -->
+           <% const postTitle = post[1].data.title %>
+           <!-- Render the title as a link to the post -->
+           <h4><a href="/posts/<%= postFilename %>"><%= postTitle%></a></h4>
+           <% }) %>
+        </section>
 
-        </h1>
-        <h2>
-            List of recent posts
-        </h2>
-        <% posts.forEach(post => { %>
-        <!-- Get the Markdown filename without it's extension -->
-        <% const postFilename = post[0].replace(/\.[^/.]+$/, "") %>
-        <!-- Get the Markdown post title from it's front matter -->
-        <% const postTitle = post[1].data.title %>
-        <!-- Render the title as a link to the post -->
-        <h2><a href="/posts/<%= postFilename %>"><%= postTitle%></a></h2>
-        <% }) %>
+
     </body>
 </html>
 

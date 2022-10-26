@@ -63,10 +63,9 @@ app.get("/posts/:post", (req, res) => {
     // Read the Markdown file and parse it's front matter
     const post = matter.read(__dirname + "/views/posts/" +postTitle +".md")
     // Convert the Markdown file content to HTML with markdown-it
-    const md = require("markdown-it")({html: true}) // Allows HTML tags inside the Markdown file
+    const md = require("markdown-it")({html: true}).use(require('markdown-it-center-text')) // Allows HTML tags inside the Markdown file
     const content = post.content // Read the Markdown file content
     const html = md.render(content) // Convert the Markdown file content to HTML
-
     // Render the postsTemplate for each post and pass it's front matter as a data object into postsTemplate
     res.render("postsTemplate", {
         title: post.data.title,

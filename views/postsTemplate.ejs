@@ -10,8 +10,16 @@
         <title><%= title %> | My blog</title>
     </head>
     <body>
-        <h1><%= title %></h1>
-        <p><%= date %></p>
-        <div><%- postContent %></div>
+        <section class="text-center">
+            <h2><%= title %></h2>
+            <p><%= date %></p>
+        </section>
+
+        <section>
+            <div class="text-left p-4"><%- postContent %></div>
+        </section>
+
+
     </body>
 </html>
+<% include partials/footer%>
